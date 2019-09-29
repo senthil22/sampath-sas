@@ -3,10 +3,6 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
  * User Model.
- * Takes care of all the data pulls for the logged in user.
- * 
- * @author Sudeep D'Souza
- * @package HE\Model
  */
 class User_model extends CI_Model {
 	
