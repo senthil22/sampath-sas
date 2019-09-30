@@ -41,13 +41,16 @@
 			padding: 7px 34px;
     		border-radius: 7px;
 		}
+		.error {
+			color: red;
+		}
 	</style>
 </head>
 <body>
 	<div id="container">
 		<h1>S.A.S Garments</h1>
 		<img class="login-icon" src="<?=base_url()?>images/user-icon.png" />
-		<form id="loginForm" action="<?=base_url()?>login/login_process" method="post">
+		<form id="loginForm" action="<?=base_url()?>login" method="post">
 			<div class='form-item'>
 				<input type="text" placeholder="Username" name="username" required="" id="username" />
 			</div>
@@ -56,11 +59,8 @@
 			</div>
 			<div class='form-item'>
 				<input class="submitBtn" type="submit" value="Log in" />
-			</div>
-			<div class='form-item'>
-				<a href="#">Lost your password?</a>
-				<a href="#">Register</a>
-			</div>
+			</div>			
+			<div class="error"><?php if(!empty($msg))print_r($msg); ?></div>
 		</form>
 	</div>
 </body>
