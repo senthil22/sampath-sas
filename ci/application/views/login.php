@@ -59,7 +59,7 @@
 			</div>
 			<div class='form-item'>
 				<input class="submitBtn" type="submit" value="Log in" />
-			</div>			
+			</div>
 			<div class="error"><?php if(!empty($msg))print_r($msg); ?></div>
 		</form>
 	</div>
