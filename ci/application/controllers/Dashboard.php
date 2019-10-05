@@ -22,13 +22,16 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
+		$list['name'] = $this->session->userdata('name');
 		$list['product'] = $this->dashboard_model->get_allproducts();
 		$list['buyer'] = $this->dashboard_model->get_allbuyers();
+		$list['stock'] = $this->dashboard_model->stockdetails();
 		$this->load->view('dashboard', $list);
 	}
 
 	public function product() {
 		$prod_id = $this->input->get('id');
+		$list['name'] = $this->session->userdata('name');
 		if(!empty($prod_id)) {
 			$list['prod_det'] = $this->dashboard_model->get_product($prod_id);
 		} else {
@@ -45,14 +48,31 @@ class Dashboard extends CI_Controller {
 		redirect('../dashboard');
 	}
 
-	public function buyer() {
+	public function delete_product() {
 		$prod_id = $this->input->get('id');
 		if(!empty($prod_id)) {
-			$list['buy_det'] = $this->dashboard_model->get_buyer($prod_id);
+			$list['prod_det'] = $this->dashboard_model->deleteproduct($prod_id);
+		}
+		redirect('../dashboard');
+	}
+
+	public function buyer() {
+		$buy_id = $this->input->get('id');
+		$list['name'] = $this->session->userdata('name');
+		if(!empty($prod_id)) {
+			$list['buy_det'] = $this->dashboard_model->get_buyer($buy_id);
 		} else {
 			$list['buy_det'] = '';
 		}
 		$this->load->view('buyerForm', $list);
+	}
+
+	public function delete_buyer() {
+		$buy_id = $this->input->get('id');
+		if(!empty($buy_id)) {
+			$list['buy_det'] = $this->dashboard_model->deletebuyer($buy_id);
+		}
+		redirect('../dashboard');
 	}
 
 	public function update_buyer() {
