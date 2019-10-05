@@ -6,7 +6,7 @@
 	<title>S.A.S Garments</title>
 	<style type="text/css">
 		body {
-			margin: 0;    		
+			margin: 0;
 		}
 		#container {
 
@@ -59,7 +59,7 @@
 		table {
 			font-family: arial, sans-serif;
 			border-collapse: collapse;
-			width: 60%;
+			width: 87%;
 		}
 
 		td, th {
@@ -91,7 +91,7 @@
 			justify-content: space-evenly;
 		}
 
-		.addprod a {	
+		.addprod a {
 			text-transform: uppercase;
 			text-decoration: none;
 			border: 1px solid #497be0;
@@ -100,11 +100,24 @@
 			padding: 4px;
 			border-radius: 5px;
 		}
+		table td a {
+			border: 1px solid #000;
+			text-decoration: none;
+			padding: 2px;
+			text-transform: capitalize;
+			border-radius: 5px;
+		}
+		.username {
+			color: #fff;
+			font-style: oblique;
+			text-shadow: 2px 2px #ce9191;
+		}
 	</style>
 </head>
 <body>
 	<div id="container">
 		<div class="header">
+			<div class="username"><?=$name?></div>
 			<div>S.A.S Garments</div>
 			<div><a href="<?=base_url()?>login/logout">Logout</a></div>
 		</div>
@@ -134,19 +147,20 @@
 						<th>stock</th>
 						<th></th>
 					</tr>
+				<!--	<?php print_r($product); ?> -->
 					<?php foreach ($product as $prod) { ?>
 						<tr>
 							<td><?=$prod['prod_name']?></td>
 							<td><?=$prod['size']?></td>
-							<td><?=$prod['color']?></td>
+							<td><?=!empty($prod['color'])?$prod['color']:''?></td>
 							<td><?=$prod['price']?></td>
 							<td><?=$prod['stock']?></td>
-							<td><a href="<?=base_url()?>dashboard/product?id=<?=$prod['prod_id']?>">update</a></td>
+							<td><a href="<?=base_url()?>dashboard/product?id=<?=$prod['prod_id']?>">update</a> <a href="<?=base_url()?>dashboard/delete_product?id=<?=$prod['prod_id']?>">delete</a></td>
 						</tr>
 					<?php } ?>
 				</table>
 			<?php } else { ?>
-				No products available</div>
+				No products available
 			<?php } ?>
 			</div>
 		</div>
@@ -175,21 +189,44 @@
 							<td><?=$prod['buy_add']?></td>
 							<td><?=$prod['total_amt']?></td>
 							<td><?=$prod['paid_amt']?></td>
-							<td><a href="<?=base_url()?>dashboard/buyer?id=<?=$prod['buy_id']?>">update</a></td>
+							<td><a href="<?=base_url()?>dashboard/buyer?id=<?=$prod['buy_id']?>">update</a> <a href="<?=base_url()?>dashboard/delete_buyer?id=<?=$prod['buy_id']?>">delete</a> </td>
 						</tr>
 					<?php } ?>
 				</table>
 			<?php } else { ?>
-				No products available</div>
+				No products available
 			<?php } ?>
 			</div>
 		</div>
 
 		<!-- Reports -->
 		<div id="ReportList" class="tablecontent">
-			<h2>Reports</h2>
+			<div class="addprod">
+				<h2>Reports</h2>
+			</div>
 			<div class="contentList">
-			
+			<?php if(!empty($stock)) { ?>
+				<table>
+					<tr>
+						<th>product name</th>
+						<th>size</th>
+						<th>color</th>
+						<th>stock</th>
+						<th style="background-color: green;">Required details</th>
+					</tr>
+					<?php foreach ($stock as $prod) { ?>
+						<tr>
+							<td><?=!empty($prod['prod_name'])?$prod['prod_name']:''?></td>
+							<td><?=!empty($prod['size'])?$prod['size']:''?></td>
+							<td><?=!empty($prod['color'])?$prod['color']:''?></td>
+							<td><?=!empty($prod['stock'])?$prod['stock']:''?></td>
+							<td style="background-color: <?=($prod['required'] > 0)?'yellow':'red'?>;"><?=!empty($prod['required'])?$prod['required']:''?></td>
+						</tr>
+					<?php } ?>
+				</table>
+			<?php } else { ?>
+				No reports available
+			<?php } ?>
 			</div>
 		</div>
 
