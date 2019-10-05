@@ -6,7 +6,7 @@
 	<title>S.A.S Garments</title>
 	<style type="text/css">
 		body {
-			margin: 0;    		
+			margin: 0;
 		}		
 		.header {
 			background-color: #3a8883;
@@ -51,12 +51,18 @@
 			border-radius: 3px;
 			text-transform: uppercase;
 		}
+		.username {
+			color: #fff;
+			font-style: oblique;
+			text-shadow: 2px 2px #ce9191;
+		}
 		
 	</style>
 </head>
 <body>
 	<div id="container">
 		<div class="header">
+			<div class="username"><?=$name?></div>
 			<div>S.A.S Garments</div>
 			<div><a href="<?=base_url()?>login/logout">Logout</a></div>
 		</div>
