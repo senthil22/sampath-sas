@@ -43,4 +43,20 @@ class Dashboard_model extends CI_Model {
 		}
 		return true;
 	}
+	public function deleteproduct($pid) {
+		if(!empty($pid)) {
+			$this->db->query("DELETE FROM products WHERE prod_id=$pid");
+		}
+		return true;
+	}
+	public function deletebuyer($id) {
+		if(!empty($id)) {
+			$this->db->query("DELETE FROM buyers WHERE buy_id=$id");
+		}
+		return true;
+	}
+	public function stockdetails() {
+		$result = $this->db->query("SELECT *, def_stock - stock as required FROM products")->result_array();
+		return $result;
+	}
 }
