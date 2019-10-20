@@ -64,6 +64,7 @@ class Dashboard extends CI_Controller {
 	public function purchase() {
 		$pur_id = $this->input->get('id');
 		$list['name'] = $this->session->userdata('name');
+		$list['prod_list'] = $this->dashboard_model->get_allproducts();
 		if(!empty($pur_id)) {
 			$list['pur_det'] = $this->dashboard_model->get_purchase($pur_id);
 		} else {
@@ -118,6 +119,7 @@ class Dashboard extends CI_Controller {
 	public function sales() {
 		$sale_id = $this->input->get('id');
 		$list['name'] = $this->session->userdata('name');
+		$list['prod_list'] = $this->dashboard_model->get_allproducts();
 		if(!empty($sale_id)) {
 			$list['sale_det'] = $this->dashboard_model->get_sales($sale_id);
 		} else {
