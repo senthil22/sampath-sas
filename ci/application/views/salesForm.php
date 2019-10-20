@@ -84,6 +84,15 @@
 					<label class="form-label" for="price">Sales Price</label>
 					<input class="form-input" type="number" placeholder="Sales Price" name="price" value="<?=!empty($sale_det['price'])?$sale_det['price']:''?>" required />
 				</div>
+				<div class='form-item'>
+					<label class="form-label" for="price">Select Product</label>
+					<select class="form-input" name="prod_id" style="width: 35%;">
+						<option value="">Select product</option>
+						<?php if(!empty($prod_list)) { foreach ($prod_list as $prod) { ?>
+							<option value="<?=$prod['prod_id']?>" <?=($sale_det['prod_id']==$prod['prod_id'])?"selected":""?>><?=$prod['prod_name']?></option>
+						<?php }	}?>
+					</select>
+				</div>
 				<div>
 					<input class="form-button" class="submitBtn" type="submit" value="Save Sales" />
 				</div>
