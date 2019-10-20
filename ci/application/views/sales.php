@@ -11,8 +11,8 @@
 		<tr>
 			<th>sales id</th>
 			<th>sales name</th>
-			<th>date</th>
-			<th>Item id</th>
+			<th>Product name</th>
+			<th>sales date</th>			
 			<th>unit</th>
 			<th>price</th>
 			<th></th>
@@ -21,8 +21,8 @@
 			<tr>
 				<td><?=$prod['sale_id']?></td>
 				<td><?=$prod['name']?></td>
+				<td><?=$prod['prod_name']?></td>
 				<td><?=$prod['date']?></td>
-				<td><?=$prod['prod_id']?></td>
 				<td><?=$prod['unit']?></td>
 				<td><?=!empty($prod['price'])?$prod['price']:''?></td>
 				<td><a href="<?=base_url()?>dashboard/sales?id=<?=$prod['sale_id']?>">update</a> <a href="<?=base_url()?>dashboard/delete_sales?id=<?=$prod['sale_id']?>">delete</a></td>
