@@ -22,7 +22,7 @@ class Dashboard_model extends CI_Model {
 		return $result;
 	}
 	public function get_allsales() {
-		$result = $this->db->query("SELECT * FROM sales")->result_array();;
+		$result = $this->db->query("SELECT sales.*, products.prod_name FROM sales JOIN products on products.prod_id = sales.prod_id")->result_array();;
 		return $result;
 	}
 	public function get_salestotal() {
