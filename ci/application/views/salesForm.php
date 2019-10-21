@@ -89,7 +89,7 @@
 					<select class="form-input" name="prod_id" style="width: 35%;">
 						<option value="">Select product</option>
 						<?php if(!empty($prod_list)) { foreach ($prod_list as $prod) { ?>
-							<option value="<?=$prod['prod_id']?>" <?=($sale_det['prod_id']==$prod['prod_id'])?"selected":""?>><?=$prod['prod_name']?></option>
+							<option value="<?=$prod['prod_id']?>" <?=!empty($sale_det['sale_id'])?($sale_det['prod_id']==$prod['prod_id'])?"selected":"":""?>><?=$prod['prod_name']?></option>
 						<?php }	}?>
 					</select>
 				</div>
