@@ -6,7 +6,7 @@
 	<title>S.A.S Garments</title>
 	<style type="text/css">
 		body {
-			margin: 0;
+			margin: 0;    		
 		}		
 		.header {
 			background-color: #3a8883;
@@ -89,7 +89,7 @@
 					<select class="form-input" name="prod_id" style="width: 35%;">
 						<option value="">Select product</option>
 						<?php if(!empty($prod_list)) { foreach ($prod_list as $prod) { ?>
-							<option value="<?=$prod['prod_id']?>" <?=($pur_det['prod_id']==$prod['prod_id'])?"selected":""?>><?=$prod['prod_name']?></option>
+							<option value="<?=$prod['prod_id']?>" <?=!empty($pur_det['pur_id'])?($pur_det['prod_id']==$prod['prod_id'])?"selected":"":""?>><?=$prod['prod_name']?></option>
 						<?php }	}?>
 					</select>
 				</div>
