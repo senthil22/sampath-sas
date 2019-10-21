@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
+
 	/**
 	 * Login controller
 	 */
@@ -29,6 +30,7 @@ class Login extends CI_Controller {
 			
 			if (!empty($log->username)) {
 				$sessionData = array(
+					'id' 		=> $log->id,
 					'username' 	=> $log->username,
 					'name'  	=> $log->name,
 					'role'	 	=> $log->role
