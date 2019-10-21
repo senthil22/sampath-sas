@@ -22,7 +22,7 @@
 				<td><?=$prod['pur_id']?></td>
 				<td><?=$prod['pur_item']?></td>
 				<td><?=$prod['prod_name']?></td>
-				<td><?=$prod['pur_date']?></td>
+				<td><?=$prod['date']?></td>
 				<td><?=$prod['unit']?></td>
 				<td><?=!empty($prod['price'])?$prod['price']:''?></td>				
 				<td><a href="<?=base_url()?>dashboard/purchase?id=<?=$prod['pur_id']?>">update</a> <a href="<?=base_url()?>dashboard/delete_purchase?id=<?=$prod['pur_id']?>">delete</a></td>

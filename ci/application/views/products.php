@@ -16,7 +16,6 @@
 			<th>stock</th>
 			<th></th>
 		</tr>
-	<!--	<?php print_r($product); ?> -->
 		<?php foreach ($product as $prod) { ?>
 			<tr>
 				<td><?=$prod['prod_name']?></td>
