@@ -1,4 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
 /**
  * User Model
  */
@@ -17,7 +18,7 @@ class User_model extends CI_Model {
 		if ($result->num_rows()>0){
 			$userData = $result->row();
 		} else {
-			$usr=$this->db->select('username,name,role')
+			$usr=$this->db->select('id,username,name,role')
 					 ->get_where('users',array('username'=>$username));
 			
 			if ($usr->num_rows()>0){
